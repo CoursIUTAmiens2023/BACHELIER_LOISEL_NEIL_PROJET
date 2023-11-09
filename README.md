@@ -3,7 +3,7 @@
 ## Quel est le jeux choisi ?
 
 Le jeu choisi est "Pong", c'est un jeu en 2D avec des graphismes simples où deux joueurs s'affrontent dans un match de tenis de table.
-La partie se termine lorsqu'un des deux joueurs gagnent ou bien lorsque le temps imparti est écoulé.
+La partie se termine lorsqu'un des deux joueurs gagne ou bien lorsque le temps imparti est écoulé.
 
 ## Pourquoi avoir choisi ce langage ?
 
