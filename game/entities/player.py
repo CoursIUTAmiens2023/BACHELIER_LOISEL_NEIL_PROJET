@@ -25,16 +25,19 @@ class Player:
         """
         Méthode pour faire bouger le joueur vers le haut
         """
+
         self.rect.move_ip(0, -self.speed)
 
     def move_down(self):
         """
         Méthode pour faire bouger le joueur vers le bas
         """
+
         self.rect.move_ip(0, self.speed)
 
     def show(self):
         """
         Méthode pour afficher le joueur
         """
+        
         pygame.draw.rect(self.screen, self.color, self.rect)
