@@ -2,33 +2,39 @@ import pygame
 
 class Player:
     """
-    This the player class where all associated attributes and methods are.
+    Classe du joueur.
     """
 
-    def __init__(self, screen, pos, width, height, color, speed):
+    def __init__(self, screen, x, y, width, height, color, speed):
         """
-        window: 
-        pos: The position of player when the game start (Tuple)
-        width: The width of the player (Integer)
-        height: The height of the player (Integer)
-        color: The color of the player (String)
-        speed: The player's movement speed (Integer)
+        screen: Écran sur lequel on affiche le jeu (pygame.Display)
+        x: Position horizantale du joueur (Un Entier ou un Float)
+        y: Position verticale du joueur (Un Entier ou un Float)
+        width: La largeur du joueur (Un Entier ou un Float)
+        height: La hauteur du joueur (Un Entier ou un Float)
+        color: La couleur du joueur (String)
+        speed: La vitesse du joueur (Un Entier ou un Float)
         """
 
         self.screen = screen
-        self.pos = pos
-        self.width = width
-        self.height = height
         self.color = color
         self.speed = speed
-        # self.rect = pygame.Rect(pos[0] - width/2, pos[1] - height/2, pos[0] + width/2, pos[1] + height/2)
-        self.rect = pygame.Rect(0, 0, 0 + width/2, 0 + height/2)
+        self.rect = pygame.Rect(x, y, width, height)
     
-    def show_player(self):
+    def move_up(self):
+        """
+        Méthode pour faire bouger le joueur vers le haut
+        """
+        self.rect.move_ip(0, -self.speed)
+
+    def move_down(self):
+        """
+        Méthode pour faire bouger le joueur vers le bas
+        """
+        self.rect.move_ip(0, self.speed)
+
+    def show(self):
+        """
+        Méthode pour afficher le joueur
+        """
         pygame.draw.rect(self.screen, self.color, self.rect)
-
-    # def up(self, event):
-    #     self.rect.move(self.player_canva_object, 0, -self.speed)
-
-    # def down(self, event):
-    #     self.rect.move(self.player_canva_object, 0, self.speed)
