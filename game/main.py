@@ -5,15 +5,15 @@ pygame.init()
 
 clock = pygame.time.Clock()
 
-width, height = 1280, 720
+screen_width, screen_height = 1280, 720
 
-screen = pygame.display.set_mode((width, height))
+screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Pong Game")
 
 in_game = True
 
-p1 = player.Player(screen, x=0, y=height/2, width=25, height=100, color=(0, 0, 255), speed=10)
-p2 = player.Player(screen, x=width-25, y=height/2, width=25, height=100, color=(255, 0, 0), speed=10)
+p1 = player.Player(screen, x=0, y=screen_height/2, width=25, height=100, color=(0, 0, 255), speed=10)
+p2 = player.Player(screen, x=screen_width-25, y=screen_height/2, width=25, height=100, color=(255, 0, 0), speed=10)
 
 while in_game:
     screen.fill((0, 0, 0))
