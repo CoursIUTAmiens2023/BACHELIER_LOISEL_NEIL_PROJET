@@ -1,4 +1,5 @@
 from entities import player
+from entities import ball
 import pygame
 
 pygame.init()
@@ -14,9 +15,11 @@ in_game = True
 
 p1 = player.Player(screen, x=0, y=screen_height/2, width=25, height=100, color=(0, 0, 255), speed=10)
 p2 = player.Player(screen, x=screen_width-25, y=screen_height/2, width=25, height=100, color=(255, 0, 0), speed=10)
+ball = ball.Ball(screen,x=screen_width/2-25,y=screen_height/2-25, width=25,height=25, color=(255,255,255),speed=1)
 
 while in_game:
     screen.fill((0, 0, 0))
+    ball.move()
 
     for event in pygame.event.get():
         key = pygame.key.get_pressed()
@@ -40,5 +43,6 @@ while in_game:
 
     p1.show()
     p2.show()
+    ball.show()
 
     pygame.display.flip()

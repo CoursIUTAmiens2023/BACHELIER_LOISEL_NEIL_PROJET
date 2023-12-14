@@ -15,7 +15,7 @@ class Player:
         color: La couleur du joueur (String)
         speed: La vitesse du joueur (Un Entier ou un Float)
         """
-
+        
         self.screen = screen
         self.color = color
         self.speed = speed
