@@ -2,18 +2,20 @@ import pygame
 
 class Player:
     """
-    Classe du joueur.
+    Classe représentant un joueur.
     """
 
     def __init__(self, screen, x, y, width, height, color, speed):
         """
-        **screen**: Écran sur lequel on affiche le jeu (pygame.Display)
-        x: Position horizantale du joueur (Un Entier ou un Float)
+        screen: Écran sur lequel on affiche le jeu (pygame.Display)
+        x: Position horizontale du joueur (Un Entier ou un Float)
         y: Position verticale du joueur (Un Entier ou un Float)
-        width: La largeur du joueur (Un Entier ou un Float)
-        height: La hauteur du joueur (Un Entier ou un Float)
-        color: La couleur du joueur (String)
-        speed: La vitesse du joueur (Un Entier ou un Float)
+        width: Largeur du joueur (Un Entier ou un Float)
+        height: Hauteur du joueur (Un Entier ou un Float)
+        color: couleur du joueur (Tuple RGB)
+        speed: Vitesse du joueur (Un Entier)
+
+        Classe représentant un joueur.
         """
         
         self.screen = screen
