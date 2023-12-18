@@ -18,6 +18,7 @@ class Ball:
 
         Classe représentant une balle.
         """
+
         self.screen = screen
         self.color = color
         self.speed = speed
@@ -30,6 +31,7 @@ class Ball:
         """
         Méthode pour faire bouger la balle.
         """
+
         if self.rect.top < 0:
             self.change_direction(change_x_direction=False, change_y_direction=True)
         elif self.screen.get_height() < self.rect.bottom:
@@ -44,6 +46,7 @@ class Ball:
 
         Méthode pour changer la direction de la balle.
         """
+
         if change_x_direction:
             self.movement_x = self.movement_x * -1
         elif change_y_direction:
@@ -56,7 +59,14 @@ class Ball:
         
         pygame.draw.ellipse(self.screen, self.color, self.rect)
     
-    def collision(self,player1,player2):
+    def collision(self, player1, player2):
+        """
+        player1: Joueur 1 (Player)
+        player2: Joueur 2 (Player)
+        
+        Méthode qui gère la collision entre les joueurs et la balle.
+        """
+        
         if(self.rect.colliderect(player1.rect)):
             self.change_direction(change_x_direction=True, change_y_direction=True)
         elif(self.rect.colliderect(player2.rect)):
