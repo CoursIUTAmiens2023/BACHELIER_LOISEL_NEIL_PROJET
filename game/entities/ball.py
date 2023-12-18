@@ -33,13 +33,13 @@ class Ball:
         """
 
         if self.rect.top < 0:
-            self.change_direction(change_x_direction=False, change_y_direction=True)
+            self.change_direction(change_x_direction=False, change_y_direction=True, player=None)
         elif self.screen.get_height() < self.rect.bottom:
-            self.change_direction(change_x_direction=False, change_y_direction=True)
+            self.change_direction(change_x_direction=False, change_y_direction=True, player= None)
 
         self.rect.move_ip(self.movement_x, self.movement_y)
     
-    def change_direction(self, change_x_direction=False, change_y_direction=False):
+    def change_direction(self, change_x_direction=False, change_y_direction=False, player= None):
         """
         change_x_direction: Variable (optionel) indiquant de changer la direction horizontale de la balle (Booléen)
         change_y_direction: Variable (optionel) indiquant de changer la direction verticale de la balle (Booléen)
@@ -51,6 +51,10 @@ class Ball:
             self.movement_x = self.movement_x * -1
         elif change_y_direction:
             self.movement_y = self.movement_y * -1
+
+        if player is not None:
+            offset = self.rect.centery - player.rect.centery
+            self.movement_y += offset / 10  
 
     def show(self):
         """
@@ -68,7 +72,8 @@ class Ball:
         """
         
         if(self.rect.colliderect(player1.rect)):
-            self.change_direction(change_x_direction=True, change_y_direction=True)
+            self.change_direction(change_x_direction=True, change_y_direction=True,player=player1)
         elif(self.rect.colliderect(player2.rect)):
-            self.change_direction(change_x_direction=True, change_y_direction=True)
+            self.change_direction(change_x_direction=True, change_y_direction=True,player=player2)
+        
         
