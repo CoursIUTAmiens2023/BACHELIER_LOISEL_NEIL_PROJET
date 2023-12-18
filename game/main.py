@@ -46,6 +46,7 @@ while in_game:
     p1.show()
     p2.show()
     ball.show()
+    ball.collision(p1,p2)
 
     pygame.display.flip()
 

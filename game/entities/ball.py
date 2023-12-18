@@ -55,3 +55,10 @@ class Ball:
         """
         
         pygame.draw.ellipse(self.screen, self.color, self.rect)
+    
+    def collision(self,player1,player2):
+        if(self.rect.colliderect(player1.rect)):
+            self.change_direction(change_x_direction=True, change_y_direction=True)
+        elif(self.rect.colliderect(player2.rect)):
+            self.change_direction(change_x_direction=True, change_y_direction=True)
+        
