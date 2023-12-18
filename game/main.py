@@ -18,6 +18,10 @@ in_game = True
 p1 = player.Player(screen, x=0, y=screen_height/2, width=25, height=100, color=(0, 0, 255), speed=10)
 p2 = player.Player(screen, x=screen_width-25, y=screen_height/2, width=25, height=100, color=(255, 0, 0), speed=10)
 ball = ball.Ball(screen, x=screen_width/2-25, y=screen_height/2-25, width=25, height=25, color=(255,255,255), speed=10)
+line_start = (screen_width // 2, 0)
+line_end = (screen_width // 2, screen_height)
+line_color = color=(255,255,255)
+line_thickness = 5
 
 while in_game:
     screen.fill((0, 0, 0))
@@ -43,6 +47,7 @@ while in_game:
             p2.move_down()
 
 
+    pygame.draw.line(screen, line_color,line_start, line_end, line_thickness)
     p1.show()
     p2.show()
     ball.show()
