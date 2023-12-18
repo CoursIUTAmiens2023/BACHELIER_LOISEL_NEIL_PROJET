@@ -1,5 +1,6 @@
 from entities import player
 from entities import ball
+from services import gameFont
 import pygame
 
 pygame.init()
@@ -15,6 +16,7 @@ pygame.display.set_caption("Pong Game")
 
 in_game = True
 
+game_fonts = gameFont.GameFont(screen, font_path='./game/assets/fonts/game_font.otf', font_size=32, font_color=(255, 255, 255))
 p1 = player.Player(screen, x=0, y=screen_height/2, width=25, height=100, color=(0, 0, 255), speed=10)
 p2 = player.Player(screen, x=screen_width-25, y=screen_height/2, width=25, height=100, color=(255, 0, 0), speed=10)
 ball = ball.Ball(screen, x=screen_width/2-25, y=screen_height/2-25, width=25, height=25, color=(255,255,255), speed=10)

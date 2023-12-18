@@ -8,12 +8,12 @@ class Player:
     def __init__(self, screen, x, y, width, height, color, speed):
         """
         screen: Écran sur lequel on affiche le jeu (pygame.Display)
-        x: Position horizontale du joueur (Un Entier ou un Float)
-        y: Position verticale du joueur (Un Entier ou un Float)
-        width: Largeur du joueur (Un Entier ou un Float)
-        height: Hauteur du joueur (Un Entier ou un Float)
+        x: Position horizontale du joueur (Int)
+        y: Position verticale du joueur (Int ou Float)
+        width: Largeur du joueur (Int ou Float)
+        height: Hauteur du joueur (Int ou Float)
         color: couleur du joueur (Tuple RGB)
-        speed: Vitesse du joueur (Un Entier)
+        speed: Vitesse du joueur (Int)
 
         Classe représentant un joueur.
         """

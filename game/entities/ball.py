@@ -9,12 +9,12 @@ class Ball:
     def __init__(self, screen, x, y, width, height, color, speed):
         """
         screen: Écran sur lequel on affiche le jeu (pygame.Display)
-        x: Position horizontale de la balle (Un Entier ou un Float)
-        y: Position verticale de la balle (Un Entier ou un Float)
-        width: Largeur de la balle (Un Entier ou un Float)
-        height: Hauteur de la balle (Un Entier ou un Float)
+        x: Position horizontale de la balle (Int ou Float)
+        y: Position verticale de la balle (Int ou Float)
+        width: Largeur de la balle (Int ou Float)
+        height: Hauteur de la balle (Int ou Float)
         color: Couleur de la balle (Tuple RGB)
-        speed: Vitesse de la balle (Un Entier)
+        speed: Vitesse de la balle (Int)
 
         Classe représentant une balle.
         """
@@ -35,14 +35,15 @@ class Ball:
         if self.rect.top < 0:
             self.change_direction(change_x_direction=False, change_y_direction=True, player=None)
         elif self.screen.get_height() < self.rect.bottom:
-            self.change_direction(change_x_direction=False, change_y_direction=True, player= None)
+            self.change_direction(change_x_direction=False, change_y_direction=True, player=None)
 
         self.rect.move_ip(self.movement_x, self.movement_y)
     
-    def change_direction(self, change_x_direction=False, change_y_direction=False, player= None):
+    def change_direction(self, change_x_direction=False, change_y_direction=False, player=None):
         """
-        change_x_direction: Variable (optionel) indiquant de changer la direction horizontale de la balle (Booléen)
-        change_y_direction: Variable (optionel) indiquant de changer la direction verticale de la balle (Booléen)
+        change_x_direction: Variable (optionel) indiquant de changer la direction horizontale de la balle (Bool)
+        change_y_direction: Variable (optionel) indiquant de changer la direction verticale de la balle (Bool)
+        player: Joueur avec lequel la balle intéragit avec (player.Player)
 
         Méthode pour changer la direction de la balle.
         """
@@ -65,15 +66,13 @@ class Ball:
     
     def collision(self, player1, player2):
         """
-        player1: Joueur 1 (Player)
-        player2: Joueur 2 (Player)
+        player1: Joueur 1 (player.Player)
+        player2: Joueur 2 (player.Player)
         
         Méthode qui gère la collision entre les joueurs et la balle.
         """
         
         if(self.rect.colliderect(player1.rect)):
-            self.change_direction(change_x_direction=True, change_y_direction=True,player=player1)
+            self.change_direction(change_x_direction=True, change_y_direction=True, player=player1)
         elif(self.rect.colliderect(player2.rect)):
-            self.change_direction(change_x_direction=True, change_y_direction=True,player=player2)
-        
-        
+            self.change_direction(change_x_direction=True, change_y_direction=True, player=player2)
