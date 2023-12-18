@@ -29,6 +29,6 @@ class GameFont:
         position: Position du texte (Tuple Coordonnées)
         """
         
-        text = self.font.render(text_value, True, self.font_color, self.background_color)
+        text = self.font.render(str(text_value), True, self.font_color, self.background_color)
 
         self.screen.blit(text, position)
