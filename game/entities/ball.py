@@ -76,3 +76,11 @@ class Ball:
             self.change_direction(change_x_direction=True, change_y_direction=True, player=player1)
         elif(self.rect.colliderect(player2.rect)):
             self.change_direction(change_x_direction=True, change_y_direction=True, player=player2)
+    
+    def change_position(self,x,y,width,height):
+        self.rect.update(x,y,width,height)
+    
+    def reset_movement(self):
+        direction = [-1, 1]
+        self.movement_x = self.speed * random.choice(direction)
+        self.movement_y = self.speed * random.choice(direction)
