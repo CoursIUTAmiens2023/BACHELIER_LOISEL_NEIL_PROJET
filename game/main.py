@@ -2,7 +2,6 @@ from entities import player
 from entities import ball
 from services import gameFont
 import pygame
-import threading
 
 pygame.init()
 
@@ -30,8 +29,8 @@ line_thickness = 5
 score_p1 = 0
 score_p2 = 0
 
-def stop_ball():
-    ball.speed = 0
+ball_out_of_screen = False
+last_reset_time = pygame.time.get_ticks()
 
 while in_game:
     screen.fill((0, 0, 0))
@@ -56,30 +55,30 @@ while in_game:
         if (key[pygame.K_KP_2]):
             p2.move_down()
 
-    game_fonts.display(0,(screen_width/2+25,0))
-    game_fonts.display(0,(screen_width/2-50,0))
+    game_fonts.display(score_p2,(screen_width/2+25,0))
+    game_fonts.display(score_p1,(screen_width/2-50,0))
     pygame.draw.line(screen, line_color,line_start, line_end, line_thickness)
     p1.show()
     p2.show()
     ball.show()
     ball.collision(p1,p2)
 
-    if ball.rect.right < 0 or ball.rect.left > screen_width:
-        threads = []
-        thread_position = threading.Thread(target=ball.change_position(x=screen_width/2-25, y=screen_height/2-25, width=25, height=25))
-        thread_reset_movement = threading.Thread(target= ball.reset_movement())
-        thread_stop_ball = threading.Thread(target=stop_ball())
-
-        threads.append(thread_position)
-        threads.append(thread_reset_movement)
-        threads.append(thread_stop_ball)
-
-        for thread in threads:
-            thread.start()
-
-        for thread in threads:
-            thread.join()
-
+    if ball.rect.right < 0:
+        score_p2 += 1
+        if not ball_out_of_screen:
+            ball.change_position(x=screen_width/2-25, y=screen_height/2-25, width=25, height=25)
+            ball.speed = 0
+            ball.reset_movement()
+            ball_out_of_screen = True
+    elif ball.rect.left > screen_width:
+        score_p1 += 1
+        if not ball_out_of_screen:
+            ball.change_position(x=screen_width/2-25, y=screen_height/2-25, width=25, height=25)
+            ball.speed = 0
+            ball.reset_movement()
+            ball_out_of_screen = True
+    else:
+        ball_out_of_screen = False
 
     pygame.display.flip()
 

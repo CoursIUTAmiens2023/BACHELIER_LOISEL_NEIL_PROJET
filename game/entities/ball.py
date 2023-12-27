@@ -1,6 +1,9 @@
 import pygame
 import random
 
+pygame.mixer.init()
+hit_sound = pygame.mixer.Sound("./game/assets/sounds/raquette.wav")
+hit_sound.set_volume(0.5)
 class Ball:
     """
     Classe représentant une balle.
@@ -33,8 +36,12 @@ class Ball:
         """
 
         if self.rect.top < 0:
+            hit_sound.stop()
+            hit_sound.play()
             self.change_direction(change_x_direction=False, change_y_direction=True, player=None)
         elif self.screen.get_height() < self.rect.bottom:
+            hit_sound.stop()
+            hit_sound.play()
             self.change_direction(change_x_direction=False, change_y_direction=True, player=None)
 
         self.rect.move_ip(self.movement_x, self.movement_y)
