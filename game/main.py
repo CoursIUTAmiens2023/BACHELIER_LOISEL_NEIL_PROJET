@@ -33,6 +33,7 @@ ball_out_of_screen = False
 last_reset_time = pygame.time.get_ticks()
 
 while in_game:
+    current_time = pygame.time.get_ticks()
     screen.fill((0, 0, 0))
     ball.move()
 
@@ -70,6 +71,7 @@ while in_game:
             ball.speed = 0
             ball.reset_movement()
             ball_out_of_screen = True
+            last_reset_time = current_time
     elif ball.rect.left > screen_width:
         score_p1 += 1
         if not ball_out_of_screen:
@@ -77,7 +79,12 @@ while in_game:
             ball.speed = 0
             ball.reset_movement()
             ball_out_of_screen = True
-    else:
+            last_reset_time = current_time
+    
+    if ball_out_of_screen and current_time - last_reset_time >= 5000:
+        ball.change_position(x=screen_width/2-25, y=screen_height/2-25, width=25, height=25)
+        ball.speed = 10 
+        ball.reset_movement()
         ball_out_of_screen = False
 
     pygame.display.flip()
