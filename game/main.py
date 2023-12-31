@@ -87,6 +87,11 @@ while in_game:
         ball.reset_movement()
         ball_out_of_screen = False
 
+    if ball_out_of_screen and current_time - last_reset_time < 5000:
+        countdown_seconds = (5000 - (current_time - last_reset_time)) // 1000 + 1
+        countdown_text = f"Reprise dans {countdown_seconds}s"
+        game_fonts.display(countdown_text, (screen_width // 2 - 150, screen_height // 2 - 50))
+
     pygame.display.flip()
 
     clock.tick(fps)
