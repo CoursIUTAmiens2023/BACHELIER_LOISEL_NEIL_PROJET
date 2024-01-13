@@ -91,6 +91,9 @@ while in_game:
         countdown_seconds = (5000 - (current_time - last_reset_time)) // 1000 + 1
         countdown_text = f"Reprise dans {countdown_seconds}s"
         game_fonts.display(countdown_text, (screen_width // 2 - 150, screen_height // 2 - 50))
+    
+    if score_p1 == 5 or score_p2 == 5:
+        in_game = False
 
     pygame.display.flip()
 
