@@ -51,9 +51,9 @@ while in_game:
             p1.move_down()
 
         # Mouvement du joueur 2
-        if (key[pygame.K_KP_8]):
+        if (key[pygame.K_o]):
             p2.move_up()
-        if (key[pygame.K_KP_2]):
+        if (key[pygame.K_l]):
             p2.move_down()
 
     game_fonts.display(score_p2,(screen_width/2+25,0))
