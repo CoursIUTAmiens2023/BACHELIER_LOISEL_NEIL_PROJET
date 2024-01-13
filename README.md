@@ -12,4 +12,4 @@ On a choisi Python puisque c'est un language simple que l'on maîtrise bien. De 
 ## Fonctionnalités du jeu
 
 - Une partie se termine lorsqu'un joueur marque 5 points ou lorsque la partie dure plus de 3 minutes.
-- Le joueur 1 est contrôlé par les touches 'z' (pour monter) et 's' (pour descendre) tandis que le joueur 2 est contrôlé par les touches '8' (pour monter) et '6' (pour descendre).
+- Le joueur 1 est contrôlé par les touches 'z' (pour monter) et 's' (pour descendre) tandis que le joueur 2 est contrôlé par les touches '8' (pour monter) et '2' (pour descendre).
